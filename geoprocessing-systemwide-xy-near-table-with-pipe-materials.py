@@ -59,10 +59,6 @@ def produceXY(nearTable, waMeter, points):
         print('XY Production Complete')
         print(final)
         return final
-##        if len(final) > 0:
-##            return final
-##        else:
-##            return None
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -100,14 +96,14 @@ def outPutAll(grid):
             print('VALUES', values)
             csvOutPuter = csv + '{}.csv'.format(row[0])
             csvProduction(values,csvOutPuter)
-##            if values is not None:
-##                csvOutPuter = csv + '{}.csv'.format(row[0])
-##                csvProduction(values,csvOutPuter)
-##
-##                print('CSV', csvOutPuter)
-##
-##                outFeatureGrid = outFeature + '{}'.format(row[0])
-##                arcpy.management.XYToLine(csvOutPuter, outFeatureGrid, 'PointXpoint', 'PointYpoint', 'WaterPointX', 'WaterPointY', 'MeterID')
+            if values is not None:
+                csvOutPuter = csv + '{}.csv'.format(row[0])
+                csvProduction(values,csvOutPuter)
+
+                print('CSV', csvOutPuter)
+
+                outFeatureGrid = outFeature + '{}'.format(row[0])
+                arcpy.management.XYToLine(csvOutPuter, outFeatureGrid, 'PointXpoint', 'PointYpoint', 'WaterPointX', 'WaterPointY', 'MeterID')
 
 outPutAll('C:\Personal_Sewer\Active\AMI\AMI_Working.gdb\waGrid')
 
